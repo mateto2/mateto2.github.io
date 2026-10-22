@@ -1,0 +1,42 @@
+@font-face{font-family:'Caveat Local';src:url('/fonts/caveat-regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Caveat Local';src:url('/fonts/caveat.ttf') format('truetype');font-weight:700;font-display:swap}
+.modal.notebook-modal{width:min(650px,calc(100vw - 24px));max-height:88svh;border:0;border-radius:0;background:transparent;box-shadow:none;color:#1947af;scrollbar-width:thin;scrollbar-color:#617bad #eaece6}
+.modal.notebook-modal::backdrop{background:#101c3999;backdrop-filter:blur(9px)}
+.notebook-modal .modal-content{padding:12px 17px 20px 26px}
+.notebook-modal .modal-close{position:sticky;top:10px;float:right;right:auto;margin:16px 17px -52px 0;z-index:3;width:34px;height:34px;border-radius:50%;background:#eef1f8;color:#1947af;font-size:28px;line-height:1;box-shadow:0 1px 3px #16346915}
+.notebook-paper{position:relative;isolation:isolate;padding:34px 35px 27px 58px;border:1px solid #d9d9ce;border-radius:3px 15px 17px 4px;background-color:#fffefb;background-image:linear-gradient(163deg,transparent 0%,transparent 28%,#9c9c8b0a 28.3%,#fff 29.5%,transparent 31%),linear-gradient(37deg,transparent 55%,#b8b8aa0a 55.5%,#ffffff88 56.4%,transparent 58%),radial-gradient(#6d819735 .65px,transparent .9px);background-size:100% 100%,100% 100%,18px 18px;box-shadow:3px 4px 0 #e8e5dc,6px 8px 0 #f5f2e8,8px 11px 22px #0d183b50;font-family:'Caveat Local','Segoe Print',cursive;font-weight:400}
+.notebook-paper::before{content:'';position:absolute;left:46px;top:0;bottom:0;border-left:1px solid #7394c638;pointer-events:none}
+.notebook-paper::after{content:'';position:absolute;right:0;top:0;bottom:0;width:12px;border-radius:0 15px 17px 0;background:linear-gradient(90deg,transparent,#dadbd51c);pointer-events:none}
+.notebook-binding{position:absolute;top:21px;bottom:16px;left:-18px;width:34px;background:url('/media/notebook-binding.svg') left top/34px 44px repeat-y;z-index:2;pointer-events:none}
+.notebook-kicker{font:500 9px 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#45629d}
+.notebook-heading{padding-bottom:12px;margin-bottom:5px;position:relative}
+.notebook-modal .notebook-heading h2{font-family:inherit;font-weight:700;font-size:48px;line-height:.96;letter-spacing:-.025em;margin:19px 0 13px;transform:rotate(-2deg);color:#1947af}
+.notebook-heading h2::after{content:'';display:block;width:175px;height:4px;margin:9px 0 0 4px;border-top:2px solid #1947af;border-radius:45%;transform:rotate(-1deg)}
+.notebook-heading h2>span{position:absolute;right:22px;top:18px;font-size:47px;font-weight:400;transform:rotate(13deg)}
+.notebook-modal .notebook-heading p{font:400 22px/1.25 'Caveat Local','Segoe Print',cursive;color:#45629d;margin:0}
+.notebook-list{list-style:none;padding:0;margin:0;counter-reset:none}
+.notebook-list li{margin:0;padding:0}
+.notebook-list a{display:grid;grid-template-columns:29px 20px 1fr 19px;align-items:center;gap:11px;min-height:53px;padding:7px 0;color:#1947af;border-bottom:1px solid #4260a50c;outline-offset:3px}
+.notebook-number{font-size:22px;opacity:.75;font-variant-numeric:tabular-nums;transform:rotate(-3deg)}
+.notebook-check{width:18px;height:19px;border:1.5px solid currentColor;border-radius:2px 1px 3px 1px;transform:rotate(-4deg);display:grid;place-items:center}
+.notebook-check svg{width:14px;height:14px;fill:currentColor;opacity:0;transition:opacity .18s}
+.notebook-list strong{font-weight:400;font-size:29px;line-height:1.15;letter-spacing:.005em}
+.notebook-list li:nth-child(3n) strong{transform:rotate(-.7deg)}
+.notebook-list li:nth-child(2n) .notebook-check{transform:rotate(3deg);border-radius:1px 3px 1px 2px}
+.notebook-arrow{font:400 23px 'Caveat Local',cursive;opacity:0;transform:translateX(-4px);transition:opacity .18s,transform .18s}
+.notebook-list a:hover strong,.notebook-list a:focus-visible strong{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.notebook-list a:hover .notebook-check svg,.notebook-list a:focus-visible .notebook-check svg{opacity:1}
+.notebook-list a:hover .notebook-arrow,.notebook-list a:focus-visible .notebook-arrow{opacity:1;transform:translateX(0)}
+.notebook-list a:focus-visible{outline:2px dashed #416cc4;border-radius:4px}
+.notebook-modal .notebook-signoff{font:400 24px 'Caveat Local','Segoe Print',cursive;color:#45629d;margin:28px 0 4px;transform:rotate(-2deg)}
+.notebook-signoff span{font-size:37px;margin-left:10px}
+.notebook-return{display:block;margin:0 0 20px;padding:7px 0;color:#1947af;font-size:12px}
+.notebook-return:hover{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:520px){.notebook-modal .modal-content{padding:8px 10px 18px 20px}.notebook-paper{padding:30px 18px 26px 35px}.notebook-paper::before{left:27px}.notebook-binding{left:-17px}.notebook-modal .notebook-heading h2{font-size:39px}.notebook-heading h2>span{right:0;top:20px;font-size:32px}.notebook-heading h2::after{width:140px}.notebook-modal .notebook-heading p{font-size:19px}.notebook-list a{grid-template-columns:22px 16px 1fr;gap:8px;min-height:50px}.notebook-check{width:15px;height:17px}.notebook-number{font-size:19px}.notebook-list strong{font-size:25px}.notebook-arrow{display:none}.notebook-modal .notebook-signoff{font-size:20px}.notebook-kicker{font-size:8px}.notebook-modal .modal-close{margin-right:9px;width:30px;height:30px}}
+@media(prefers-reduced-motion:reduce){.notebook-check svg,.notebook-arrow{transition:none}}
+.notebook-list a{grid-template-columns:29px 54px 1fr 19px;min-height:86px}
+.notebook-preview{position:relative;display:block;width:48px;height:66px;border:1.5px solid #1947af;border-radius:3px 5px 3px 2px;overflow:hidden;transform:rotate(-3deg);background:#e8edf5;box-shadow:2px 2px 0 #1947af20}
+.notebook-preview video{display:block;width:100%;height:100%;object-fit:cover}
+.notebook-preview>span{position:absolute;bottom:3px;right:3px;width:17px;height:17px;border-radius:50%;background:#1947afdb;color:white;font:9px/17px sans-serif;text-align:center}
+.notebook-list li:nth-child(2n) .notebook-preview{transform:rotate(2deg)}
+@media(max-width:520px){.notebook-list a{grid-template-columns:22px 44px 1fr;gap:8px;min-height:76px}.notebook-preview{width:40px;height:57px}.notebook-list strong{font-size:23px}}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="44" viewBox="0 0 34 44">
+  <defs><linearGradient id="wire" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c6c6be"/><stop offset=".45" stop-color="#666a65"/><stop offset=".7" stop-color="#eeeae0"/><stop offset="1" stop-color="#7b7e77"/></linearGradient></defs>
+  <ellipse cx="27" cy="20" rx="3.8" ry="5.5" fill="#727366" opacity=".35"/>
+  <path d="M27 21C5 27 0 25 3 17S17 10 28 15" fill="none" stroke="#000" stroke-opacity=".15" stroke-width="5" transform="translate(0 2)"/>
+  <path d="M27 21C5 27 0 25 3 17S17 10 28 15" fill="none" stroke="url(#wire)" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M27 14C15 10 5 12 3 17" fill="none" stroke="#fbfbf6" stroke-opacity=".8" stroke-width=".8"/>
+</svg>

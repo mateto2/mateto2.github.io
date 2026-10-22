@@ -1,0 +1,15 @@
+.header .island-anchor{justify-self:center;position:relative;z-index:21}
+.header .dynamic-island{margin:0;display:block;padding:8px;border-radius:36px;background:#f3eddf url('/media/island-pattern.jpg') center/360px auto;border:1px solid #22221f30;box-shadow:0 3px 0 #25221c12,0 5px 16px #25221c0c}
+.island-links{display:flex;align-items:center;gap:5px}
+.header .dynamic-island .island-action{background:transparent url('/media/blue-marker.svg') center/100% 100% no-repeat;color:#f3eddf;border:0;border-radius:25px;display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:7px 16px;position:relative;touch-action:manipulation}
+.header .dynamic-island .island-action:hover{color:#f3eddf}
+.dynamic-island button:focus-visible{outline:2px solid #f52320;outline-offset:3px}
+.dynamic-island svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;overflow:visible;filter:none}
+.island-eye-white{fill:#f3eddf}
+.island-pupils{color:#1748ee}
+.island-letters{display:inline-flex;font-size:16px;font-weight:800;letter-spacing:-.045em;white-space:nowrap;text-shadow:0 1px 1px #1237ad}
+.island-letters>span{display:inline-block}
+@media(max-width:800px){.header .island-anchor{grid-row:2;grid-column:1/-1;align-self:start}.header .dynamic-island{padding:7px}}
+@media(max-width:380px){.header .dynamic-island .island-action{padding:7px;gap:4px}.island-letters{font-size:14px}.dynamic-island svg{width:24px;height:24px}}
+
+.header .dynamic-island .island-action[aria-disabled=true]{cursor:default}

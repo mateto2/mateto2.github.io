@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="64" viewBox="0 0 160 64" preserveAspectRatio="none">
+  <defs>
+    <filter id="edge" x="-5%" y="-10%" width="110%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".08 .3" numOctaves="2" seed="17" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.7"/>
+    </filter>
+    <clipPath id="pill"><path d="M30 4C8 4 2 16 3 34s12 26 31 26l97-2c20 0 28-13 26-29S145 3 127 4Z"/></clipPath>
+    <pattern id="ink" width="31" height="11" patternUnits="userSpaceOnUse" patternTransform="rotate(-9)">
+      <path d="M-6 2 35 1M-5 6 34 5M0 10 27 9" fill="none" stroke="#e3e8ff" stroke-width=".55" opacity=".37"/>
+      <path d="M4 3 25 2M-4 8 32 7" fill="none" stroke="#062bc5" stroke-width=".8" opacity=".6"/>
+    </pattern>
+  </defs>
+  <g filter="url(#edge)">
+    <path d="M30 4C8 4 2 16 3 34s12 26 31 26l97-2c20 0 28-13 26-29S145 3 127 4Z" fill="#1748ee"/>
+    <g clip-path="url(#pill)">
+      <path d="M14 16 145 12M7 28 151 23M8 41 153 35M18 53 143 48" stroke="#3062ff" opacity=".5" stroke-width="7" stroke-linecap="round"/>
+      <path d="M23 8C7 14 5 42 23 52s92 3 110 0 23-17 15-31S83 10 31 10" fill="none" stroke="#7190ff" stroke-width="1" opacity=".45"/>
+      <path fill="url(#ink)" d="M0 0h160v64H0z"/>
+    </g>
+  </g>
+</svg>
