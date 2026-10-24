@@ -21,3 +21,11 @@ Faça commit das alterações e envie para `main`.
 Inclui 11 vídeos pessoais (os dois arquivos AF24424B enviados eram idênticos),
 capas extraídas dos filmes, prévias leves, caderno Explorer e abertura com piscada.
 Os títulos História 01–11 são provisórios; as demais entradas ainda são modelos.
+
+## Entrada por vertentes
+
+A homepage reúne Filmmaker, Designer e Desenvolvedor. A experiência original
+de vídeos está em `#filmmaker`; Designer e Desenvolvedor têm apresentações
+iniciais em construção. `#film-01` e demais links de vídeos continuam válidos.
+O código da homepage fica em `source/src/PortfolioHome.jsx`; a parede está
+em `source/src/FilmExperience.jsx`, carregada somente ao entrar em Filmmaker.
