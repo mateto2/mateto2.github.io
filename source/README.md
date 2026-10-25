@@ -186,8 +186,11 @@ continuam levando diretamente ao estado final, de olhos abertos.
 
 A seleção inicial tem quatro crachás suspensos: Filmmaker, Designer,
 Desenvolvedor e Fotografia. `BadgeSelector.jsx` usa CSS 3D e molas do Motion,
-com balanço individual, arraste e pausa. O conteúdo de cada crachá é provisório.
-As imagens dos filmes só carregam após entrar em Filmmaker, exceto a pequena capa
-usada como ilustração do crachá. Fotografia abre uma apresentação em construção.
+com balanço individual, arraste livre nos dois eixos, inclinação 3D e pausa.
+As quatro ilustrações enviadas por Matheus estão em `public/media/badges/`.
+Uma fita SVG flexível acompanha o corpo do crachá e mantém o ponto superior fixo;
+a mola mais suave ao soltar preserva o balanço. O arraste oferece resistência
+gradual nas extremidades, sem o antigo limite abrupto de inclinação.
+As imagens dos filmes só carregam após entrar em Filmmaker. Fotografia abre uma apresentação em construção.
 `badge-gesture.js` preserva cliques, impede navegação ao arrastar e libera rolagem
 vertical no toque; os casos são cobertos por `badge-gesture.test.js`.
