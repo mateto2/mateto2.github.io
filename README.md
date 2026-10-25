@@ -24,8 +24,12 @@ Os títulos História 01–11 são provisórios; as demais entradas ainda são m
 
 ## Entrada por vertentes
 
-A homepage reúne Filmmaker, Designer e Desenvolvedor. A experiência original
+A homepage reúne Filmmaker, Designer, Desenvolvedor e Fotografia em quatro crachás suspensos. A experiência original
 de vídeos está em `#filmmaker`; Designer e Desenvolvedor têm apresentações
 iniciais em construção. `#film-01` e demais links de vídeos continuam válidos.
 O código da homepage fica em `source/src/PortfolioHome.jsx`; a parede está
 em `source/src/FilmExperience.jsx`, carregada somente ao entrar em Filmmaker.
+
+Os crachás usam CSS 3D e molas do Motion para balanço e arraste. Clique abre a
+vertente; arraste não navega. Há pausa e suporte a movimento reduzido. O conteúdo
+visual dos crachás é provisório. Fotografia abre uma apresentação inicial.

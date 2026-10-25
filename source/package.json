@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
-    "test": "node --test --test-isolation=none src/reelPose.test.js src/reel-entrance-controller.test.js src/reel-style-writer.test.js src/reel-input.test.js"
+    "test": "node --test --test-isolation=none src/reelPose.test.js src/reel-entrance-controller.test.js src/reel-style-writer.test.js src/reel-input.test.js src/badge-gesture.test.js"
   },
   "dependencies": {
     "framer-motion": "^12.23.24",
