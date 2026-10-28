@@ -25,11 +25,20 @@ Os títulos História 01–11 são provisórios; as demais entradas ainda são m
 ## Entrada por vertentes
 
 A homepage reúne Filmmaker, Designer, Desenvolvedor e Fotografia em quatro crachás suspensos. A experiência original
-de vídeos está em `#filmmaker`; Designer e Desenvolvedor têm apresentações
-iniciais em construção. `#film-01` e demais links de vídeos continuam válidos.
+de vídeos está em `#filmmaker`; Designer abre o sketchbook em `#designer`,
+e Desenvolvedor tem uma apresentação em construção. `#film-01` e demais links de vídeos continuam válidos.
 O código da homepage fica em `source/src/PortfolioHome.jsx`; a parede está
 em `source/src/FilmExperience.jsx`, carregada somente ao entrar em Filmmaker.
 
 Os crachás usam CSS 3D e molas do Motion para balanço e arraste. Clique abre a
-vertente; arraste não navega. Há pausa e suporte a movimento reduzido. O conteúdo
+vertente; arraste não navega. O balanço é contínuo, sem botão de pausa, com suporte
+a movimento reduzido. O toque permite arraste livre nos dois eixos, mantendo
+rolagem fora dos crachás e zoom por pinça. O conteúdo
 visual dos crachás é provisório. Fotografia abre uma apresentação inicial.
+
+## Sketchbook de design gráfico
+
+A aba Designer tem um livro com virada de páginas, dez artes de exemplo,
+páginas individuais e imagens contínuas em página dupla. Funciona por clique,
+arraste e teclado. A coleção fica em `source/src/design-collection.js`;
+veja `source/DESIGN-SKETCHBOOK.md` para substituir as artes e adicionar páginas.

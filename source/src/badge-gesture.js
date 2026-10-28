@@ -1,20 +1,22 @@
-/** Dragging a badge never follows its link. Vertical touch gestures keep scrolling. */
+/** Mouse, pen and touch drag freely in both axes; only a tap follows the link.
+ * CSS reserves one-finger gestures on the badge; its surroundings still scroll.
+ */
 export function createBadgeGesture(onChange) {
   let pointer = null;
   let suppress = false;
   const reset = () => { pointer = null; onChange(null); };
   return {
     down(e, origin = { x: 0, y: 0 }) {
-      if (pointer || e.button !== 0 || e.isPrimary === false) return;
+      if (pointer || e.button !== 0 || e.isPrimary === false) return false;
       suppress = false;
-      pointer = { id: e.pointerId, x: e.clientX, y: e.clientY, origin, touch: e.pointerType === 'touch', dragging: false };
+      pointer = { id: e.pointerId, x: e.clientX, y: e.clientY, origin, dragging: false };
+      return true;
     },
     move(e) {
       if (!pointer || e.pointerId !== pointer.id) return false;
       const dx = e.clientX - pointer.x, dy = e.clientY - pointer.y;
       if (!pointer.dragging) {
         if (Math.hypot(dx, dy) < 7) return false;
-        if (pointer.touch && Math.abs(dy) > Math.abs(dx)) { reset(); return false; }
         pointer.dragging = true;
       }
       suppress = true;

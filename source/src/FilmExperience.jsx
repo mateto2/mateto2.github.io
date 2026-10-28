@@ -1,3 +1,4 @@
+import SiteIcon from './SiteIcon.jsx';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { animate, useMotionValue, useSpring } from 'framer-motion';
 import Loader from './Loader.jsx';
@@ -300,7 +301,7 @@ export default function FilmExperience() {
       <PatternBackdrop cleared={cleared} reducedMotion={reducedInitially} onComplete={() => setPainted(true)} onAsset={onAsset} />
       <div className="page-bands" aria-hidden="true" />
       <header className="header home-reveal">
-        <a className="film-home-link" href="#inicio" aria-label="Voltar às vertentes">← Todas as vertentes</a>
+        <a className="film-home-link" href="#inicio" aria-label="Voltar às vertentes"><SiteIcon name="arrow-left" /> Todas as vertentes</a>
         <span ref={headerBrand} className="header-wordmark wordmark" aria-hidden="true"><i className="brand-avatar"><img src="/media/matheus-avatar.png" alt="" /></i>Matheus</span>
         <DynamicIsland enabled={cleared} onNavigate={type => setModal({ type })} />
       </header>
@@ -322,23 +323,23 @@ export default function FilmExperience() {
         <div className="collection-label painted-note"><InkSymbol kind="film" /><div><span className="mono marker-type">THE MOVING COLLECTION</span><span className="collection-count marker-type">{current}<i> / {reels.length}</i></span></div></div>
         <div className="drag-hint mono painted-note"><InkSymbol kind="arrow" /><span className="marker-type">DRAG TO CHANGE YOUR VIEW</span></div>
         <div className="control-buttons">
-          <button aria-label="Previous reel" onClick={() => turn(-22.5)}>←</button>
-          <button className="pause-button" aria-label={paused ? 'Play motion' : 'Pause motion'} onClick={() => setPaused(v => !v)}>{paused ? '▶' : 'Ⅱ'}</button>
-          <button aria-label="Next reel" onClick={() => turn(22.5)}>→</button>
+          <button aria-label="Previous reel" onClick={() => turn(-22.5)}><SiteIcon name="arrow-left" /></button>
+          <button className="pause-button" aria-label={paused ? 'Play motion' : 'Pause motion'} onClick={() => setPaused(v => !v)}><SiteIcon name={paused ? 'play' : 'pause'} /></button>
+          <button aria-label="Next reel" onClick={() => turn(22.5)}><SiteIcon name="arrow-right" /></button>
         </div>
       </div>
       <footer className="footer reveal">
         <span className="mono">A LITTLE CURIOSITY GOES A LONG WAY.</span>
         <span className="footer-center">Stay open. Keep looking.</span>
-        <button className="mono text-button" onClick={() => setModal({ type: 'about' })} inert={!cleared}>BEHIND THE FRAMES ↗</button>
+        <button className="mono text-button" onClick={() => setModal({ type: 'about' })} inert={!cleared}>BEHIND THE FRAMES <SiteIcon name="arrow-up-right" /></button>
       </footer>
       <Loader loaded={progress.loaded} failures={progress.failures} total={TOTAL} cleared={cleared} onSkip={skip} expansion={expansion} />
       <dialog ref={dialog} aria-labelledby="modal-title" className={`modal ${modal?.type === 'film' ? 'film-modal' : modal?.type === 'index' ? 'notebook-modal' : ''}`} onCancel={() => setModal(null)}
         onClick={(event) => { if (event.target === dialog.current) setModal(null); }} onClose={() => setModal(null)}>
         {modal && <div className="modal-content">
-          <button className="modal-close" onClick={() => setModal(null)} aria-label="Close dialog" autoFocus>×</button>
+          <button className="modal-close" onClick={() => setModal(null)} aria-label="Close dialog" autoFocus><SiteIcon name="close" /></button>
           {modal.type === 'film' ? <>
-            {modal.from === 'index' && <button className="notebook-return" onClick={() => setModal({ type: 'index' })}>← Voltar ao caderno</button>}
+            {modal.from === 'index' && <button className="notebook-return" onClick={() => setModal({ type: 'index' })}><SiteIcon name="arrow-left" /> Voltar ao caderno</button>}
             <span className="mono">{modal.reel.category}</span>
             <h2 id="modal-title">{modal.reel.title}</h2>
             <video src={modal.reel.fullVideo ?? modal.reel.video} poster={modal.reel.cover} controls autoPlay playsInline muted loop />

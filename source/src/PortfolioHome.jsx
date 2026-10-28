@@ -1,5 +1,7 @@
+import SiteIcon from './SiteIcon.jsx';
 import React from 'react';
 import BadgeSelector from './BadgeSelector.jsx';
+import DesignSketchbook from './DesignSketchbook.jsx';
 import './portfolio-home.css';
 
 export const fields = [
@@ -17,26 +19,26 @@ export default function PortfolioHome({ route }) {
   const detail = fields.find(f => f.id === route && f.id !== 'filmmaker');
   return <div className="portfolio-hub badge-hub">
     <header className="hub-header">
-      <a href="#inicio" className="hub-logo" aria-label="Matheus, início">m<span>✳</span></a>
+      <a href="#inicio" className="hub-logo" aria-label="Matheus, início">m<span><SiteIcon name="asterisk" /></span></a>
       <span className="hub-header-note">UM OLHAR. MUITAS POSSIBILIDADES.</span>
-      <a href="#vertentes" className="hub-menu">Explorar meu universo <span>↗</span></a>
+      <a href="#vertentes" className="hub-menu">Explorar meu universo <span><SiteIcon name="arrow-up-right" /></span></a>
     </header>
-    {detail ? <main className="hub-detail">
-      <a href="#inicio" className="hub-back">← Todas as vertentes</a>
+    {route === 'designer' ? <DesignSketchbook /> : detail ? <main className="hub-detail">
+      <a href="#inicio" className="hub-back"><SiteIcon name="arrow-left" /> Todas as vertentes</a>
       <div className="hub-detail-icon"><Sketch kind={detail.icon}/></div>
       <span className="hub-kicker">VERTENTE {detail.n} / MATHEUS</span>
       <h1>{detail.label}<span className="hub-red">.</span></h1>
       <h2>{detail.verb}</h2><p>{detail.text}</p>
       <div className="hub-coming"><span className="hub-dot"/> Um novo capítulo em construção<span>Os projetos desta área chegam em breve.</span></div>
-      <a className="hub-primary" href="#filmmaker">Enquanto isso, explore meus filmes <span>↗</span></a>
+      <a className="hub-primary" href="#filmmaker">Enquanto isso, explore meus filmes <span><SiteIcon name="arrow-up-right" /></span></a>
     </main> : <main className="badge-home">
       <section className="badge-hero-heading" aria-labelledby="hub-title">
         <div><p className="hub-kicker"><span className="hub-dot"/> MATHEUS / CRIATIVO EM MOVIMENTO</p>
           <h1 id="hub-title">Um olhar.<br/><span>Várias formas de criar.</span></h1></div>
-        <div className="badge-hero-note"><p>Entre filmes, design, código e fotografia.<br/>Escolha um crachá e conheça um lado do meu trabalho.</p><span>Não cabe tudo em um título. Ainda bem. ↙</span></div>
+        <div className="badge-hero-note"><p>Entre filmes, design, código e fotografia.<br/>Escolha um crachá e conheça um lado do meu trabalho.</p><span>Não cabe tudo em um título. Ainda bem. <SiteIcon name="arrow-down-left" /></span></div>
       </section>
       <BadgeSelector fields={fields}/>
     </main>}
-    <footer className="hub-footer"><span>MATHEUS © {new Date().getFullYear()}</span><span>Feito de curiosidade. E um pouco de tinta.</span><a href="#inicio">Tudo é perspectiva. ↗</a></footer>
+    <footer className="hub-footer"><span>MATHEUS <SiteIcon name="copyright" /> {new Date().getFullYear()}</span><span>Feito de curiosidade. E um pouco de tinta.</span><a href="#inicio">Tudo é perspectiva. <SiteIcon name="arrow-up-right" /></a></footer>
   </div>;
 }

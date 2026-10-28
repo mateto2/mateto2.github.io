@@ -1,3 +1,4 @@
+import SiteIcon from './SiteIcon.jsx';
 import React, { useEffect, useRef } from 'react';
 import './notebook.css';
 
@@ -6,7 +7,7 @@ export default function ReelNotebook({ reels, onOpen }) {
     <div className="notebook-binding" aria-hidden="true" />
     <header className="notebook-heading">
       <span className="notebook-kicker">EXPLORER / {reels.length} VÍDEOS</span>
-      <h2 id="modal-title">Histórias que<br />eu contei<span aria-hidden="true">✳</span></h2>
+      <h2 id="modal-title">Histórias que<br />eu contei<span aria-hidden="true"><SiteIcon name="asterisk" /></span></h2>
       <p>Escolha uma história e dê play.</p>
     </header>
     <ol className="notebook-list">
@@ -20,11 +21,11 @@ export default function ReelNotebook({ reels, onOpen }) {
           <span className="notebook-number">{reel.id}</span>
           <NotebookPreview reel={reel} />
           <strong>{reel.title}</strong>
-          <span className="notebook-arrow" aria-hidden="true">↗</span>
+          <span className="notebook-arrow" aria-hidden="true"><SiteIcon name="arrow-up-right" /></span>
         </a>
       </li>)}
     </ol>
-    <p className="notebook-signoff">continua na próxima ideia… <span aria-hidden="true">↝</span></p>
+    <p className="notebook-signoff">continua na próxima ideia… <span aria-hidden="true"><SiteIcon name="arrow-flow" /></span></p>
   </article>;
 }
 
@@ -48,5 +49,5 @@ function NotebookPreview({ reel }) {
     reduced.addEventListener('change', sync);
     return () => { observer.disconnect(); video.pause(); document.removeEventListener('visibilitychange', sync); reduced.removeEventListener('change', sync); };
   }, [reel.video]);
-  return <span className="notebook-preview" aria-hidden="true"><video ref={ref} poster={reel.cover} muted loop playsInline preload="none" tabIndex={-1} /><span>▶</span></span>;
+  return <span className="notebook-preview" aria-hidden="true"><video ref={ref} poster={reel.cover} muted loop playsInline preload="none" tabIndex={-1} /><span><SiteIcon name="play" /></span></span>;
 }

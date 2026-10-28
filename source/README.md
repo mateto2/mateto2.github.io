@@ -186,11 +186,37 @@ continuam levando diretamente ao estado final, de olhos abertos.
 
 A seleção inicial tem quatro crachás suspensos: Filmmaker, Designer,
 Desenvolvedor e Fotografia. `BadgeSelector.jsx` usa CSS 3D e molas do Motion,
-com balanço individual, arraste livre nos dois eixos, inclinação 3D e pausa.
+com balanço contínuo individual, arraste livre nos dois eixos e inclinação 3D.
 As quatro ilustrações enviadas por Matheus estão em `public/media/badges/`.
 Uma fita SVG flexível acompanha o corpo do crachá e mantém o ponto superior fixo;
 a mola mais suave ao soltar preserva o balanço. O arraste oferece resistência
 gradual nas extremidades, sem o antigo limite abrupto de inclinação.
 As imagens dos filmes só carregam após entrar em Filmmaker. Fotografia abre uma apresentação em construção.
-`badge-gesture.js` preserva cliques, impede navegação ao arrastar e libera rolagem
-vertical no toque; os casos são cobertos por `badge-gesture.test.js`.
+`badge-gesture.js` preserva cliques/toques e impede navegação ao arrastar.
+Mouse, caneta e toque movimentam os crachás nos dois eixos; o ponteiro é capturado
+ao iniciar o contato para acompanhar movimentos fora da área original do crachá.
+A rolagem no celular fica disponível nas áreas ao redor dos crachás, e o zoom
+por pinça continua permitido. Não há botão de pausa; o balanço respeita a preferência
+do sistema por movimento reduzido. Os casos são cobertos por `badge-gesture.test.js`.
+
+## Ícones sem emojis
+
+Setas, asteriscos, fechar, reprodução, pausa e copyright usam desenhos vetoriais
+em `public/media/ui-icons.svg`, renderizados por `src/SiteIcon.jsx`. Os símbolos
+não dependem de fontes nem do conjunto de emojis do sistema. Preserve esse padrão
+ao adicionar botões ou elementos decorativos. Os desenhos SVG já existentes da
+navegação e os retratos continuam como imagens. As artes do sketchbook também
+usam caminhos vetoriais para suas setas.
+
+## Transição do crachá Desenvolvedor
+
+O retrato usa uma única camada fixa (`desenvolvedor-foreground.png`) sobre fundo
+branco. Apenas `desenvolvedor-background.png` aparece atrás dele com transição
+de opacidade de 1,4 segundo. Não há zoom, deslocamento nem troca de retrato.
+A referência enviada está preservada em `public/media/badges/desenvolvedor-hover.png`.
+Hover com mouse, foco por teclado e arraste ativam a imagem escura. No toque,
+a imagem aparece enquanto o dedo está no crachá e permanece por 1,2 segundo
+após soltar, antes do retorno suave. Um toque simples continua abrindo a vertente.
+As duas camadas carregam antecipadamente. O fundo só aparece quando ambas estão
+prontas; a imagem original serve de fallback. Movimento reduzido desativa a animação.
+Os recortes e prompts estão documentados em `BADGE-ARTWORK.md`.

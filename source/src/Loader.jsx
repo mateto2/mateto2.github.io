@@ -1,3 +1,4 @@
+import SiteIcon from './SiteIcon.jsx';
 import React, { useEffect, useRef } from 'react';
 import { createStyleWriter } from './reel-style-writer.ts';
 
@@ -64,7 +65,7 @@ export default function Loader({ loaded, total, failures, cleared, onSkip, expan
       </div>
     </div>
     <button className="text-button mono skip entrance-skip" hidden={cleared} onClick={onSkip}>
-      SKIP INTRO <span>↗</span>
+      SKIP INTRO <span><SiteIcon name="arrow-up-right" /></span>
     </button>
   </>);
 }

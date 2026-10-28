@@ -1,3 +1,4 @@
+import SiteIcon from './SiteIcon.jsx';
 import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import { CRITICAL_SLOTS, reels } from './reels.js';
 import { SLOTS } from './reelPose.js';
@@ -46,7 +47,7 @@ export const ReelCard = forwardRef(function ReelCard({ slot, onAsset, onOpen }, 
           onError={videoFailed} />
         <div className="card-shade" />
         <span className="card-number mono">R/{reel.id}</span>
-        <span className="card-play" aria-hidden="true">↗</span>
+        <span className="card-play" aria-hidden="true"><SiteIcon name="arrow-up-right" /></span>
         <div className="card-caption"><span className="mono">{reel.category}</span><strong>{reel.title}</strong></div>
       </div>
     </a>
