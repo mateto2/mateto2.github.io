@@ -1,4 +1,5 @@
 import SiteIcon from './SiteIcon.jsx';
+import SiteFooter from './SiteFooter.jsx';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { animate, useMotionValue, useSpring } from 'framer-motion';
 import Loader from './Loader.jsx';
@@ -292,6 +293,7 @@ export default function FilmExperience() {
   }, [skip]);
 
   return (
+    <div className="film-page">
     <main className={`app${cleared ? ' is-ready' : ''}${homeEntrance ? ' is-home-entering' : ''}`} ref={app}
       onFocus={event => { cardFocused.current = Boolean(event.target.closest('.reel-card')); }}
       onBlur={() => { cardFocused.current = false; }}
@@ -328,11 +330,11 @@ export default function FilmExperience() {
           <button aria-label="Next reel" onClick={() => turn(22.5)}><SiteIcon name="arrow-right" /></button>
         </div>
       </div>
-      <footer className="footer reveal">
+      <div className="footer reveal">
         <span className="mono">A LITTLE CURIOSITY GOES A LONG WAY.</span>
         <span className="footer-center">Stay open. Keep looking.</span>
         <button className="mono text-button" onClick={() => setModal({ type: 'about' })} inert={!cleared}>BEHIND THE FRAMES <SiteIcon name="arrow-up-right" /></button>
-      </footer>
+      </div>
       <Loader loaded={progress.loaded} failures={progress.failures} total={TOTAL} cleared={cleared} onSkip={skip} expansion={expansion} />
       <dialog ref={dialog} aria-labelledby="modal-title" className={`modal ${modal?.type === 'film' ? 'film-modal' : modal?.type === 'index' ? 'notebook-modal' : ''}`} onCancel={() => setModal(null)}
         onClick={(event) => { if (event.target === dialog.current) setModal(null); }} onClose={() => setModal(null)}>
@@ -357,6 +359,8 @@ export default function FilmExperience() {
         </div>}
       </dialog>
     </main>
+    <SiteFooter />
+    </div>
   );
 }
 

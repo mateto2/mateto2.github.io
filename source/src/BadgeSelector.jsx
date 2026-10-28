@@ -10,6 +10,13 @@ function Clasp() {
 function BadgeArtwork({ type }) {
   const [alternateReady, setAlternateReady] = useState(false);
   const [foregroundReady, setForegroundReady] = useState(false);
+  if (type === 'fotografia') return <span className="badge-photo-art">
+    <img className="badge-portrait badge-portrait-fotografia" src="/media/badges/fotografia.png" alt="" draggable="false" decoding="async"/>
+    <span className={`badge-photo-alternate${alternateReady ? ' is-ready' : ''}`}>
+      <img className="badge-portrait badge-portrait-fotografia-hover" src="/media/badges/fotografia-hover.png" alt="" draggable="false" decoding="async"
+        onLoad={() => setAlternateReady(true)} onError={() => setAlternateReady(false)}/>
+    </span>
+  </span>;
   if (type !== 'desenvolvedor') return <img className={`badge-portrait badge-portrait-${type}`} src={`/media/badges/${type}.png`} alt="" draggable="false" decoding="async"/>;
   // A single foreground stays fixed; only the background opacity changes.
   return <span className="badge-developer-art">
@@ -100,7 +107,7 @@ function HangingBadge({ field, index, active, onActivate }) {
         <motion.a href={`#${field.id}`} className={`identity-badge${dragging ? ' is-dragging' : ''}${touchPreview ? ' is-touch-preview' : ''}`} style={{ rotateY: yaw, rotateX: pitch }}
           aria-label={`Explorar ${field.label}`} aria-describedby="badge-instructions"
           onPointerDown={e => {
-            if (field.id === 'desenvolvedor' && e.pointerType !== 'mouse' && e.isPrimary !== false && e.button === 0) {
+            if (['desenvolvedor', 'fotografia'].includes(field.id) && e.pointerType !== 'mouse' && e.isPrimary !== false && e.button === 0) {
               window.clearTimeout(previewTimer.current);
               previewPointer.current = e.pointerId;
               setTouchPreview(true);
@@ -141,6 +148,6 @@ export default function BadgeSelector({ fields }) {
       <span className="badge-backdrop-word" aria-hidden="true">Matheus<span><SiteIcon name="asterisk" /></span></span>
       <div className="badge-rack">{fields.map((field, i) => <HangingBadge key={field.id} field={field} index={i} active={active === i} onActivate={setActive}/>)}</div>
     </div>
-    <div className="badge-instructions"><p id="badge-instructions"><span aria-hidden="true"><SiteIcon name="arrow-both" /></span> {reduced ? 'Escolha um crachá para explorar.' : 'Arraste e solte para brincar. Toque ou clique para explorar.'}</p><span className="badge-four">QUATRO VERTENTES. UM MESMO OLHAR.</span></div>
+    <div className="badge-instructions"><p id="badge-instructions"><span aria-hidden="true"><SiteIcon name="arrow-both" /></span> {reduced ? 'Escolha um crachá.' : 'Arraste para brincar. Toque para explorar.'}</p></div>
   </section>;
 }

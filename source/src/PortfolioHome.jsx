@@ -1,8 +1,13 @@
 import SiteIcon from './SiteIcon.jsx';
 import React from 'react';
 import BadgeSelector from './BadgeSelector.jsx';
-import DesignSketchbook from './DesignSketchbook.jsx';
+import DesignArea from './DesignArea.jsx';
+import DesignInspiration from './DesignInspiration.jsx';
+import SiteFooter from './SiteFooter.jsx';
+import DynamicIsland from './DynamicIsland.jsx';
+import { siteContact } from './site-contact.js';
 import './portfolio-home.css';
+import './home-hero.css';
 
 export const fields = [
   { id: 'filmmaker', n: '01', label: 'Filmmaker', verb: 'Histórias em movimento.', text: 'Um olhar atento. Um novo enquadramento. Histórias que ganham vida em vídeo.', meta: 'EXPLORAR FILMES', icon: 'film' },
@@ -20,10 +25,19 @@ export default function PortfolioHome({ route }) {
   return <div className="portfolio-hub badge-hub">
     <header className="hub-header">
       <a href="#inicio" className="hub-logo" aria-label="Matheus, início">m<span><SiteIcon name="asterisk" /></span></a>
-      <span className="hub-header-note">UM OLHAR. MUITAS POSSIBILIDADES.</span>
-      <a href="#vertentes" className="hub-menu">Explorar meu universo <span><SiteIcon name="arrow-up-right" /></span></a>
     </header>
-    {route === 'designer' ? <DesignSketchbook /> : detail ? <main className="hub-detail">
+    {route === 'inspiracoes' || route === 'designer-inspiracoes' ? <main className="design-studio inspiration-page">
+      <div className="design-topline"><a href="#inicio" className="design-back"><SiteIcon name="arrow-up-left" /> Início</a></div>
+      <DesignInspiration standalone />
+    </main> : route === 'designer' ? <DesignArea /> : route === 'sobre' ? <main className="hub-detail">
+      <a href="#inicio" className="hub-back"><SiteIcon name="arrow-left" /> Todas as vertentes</a>
+      <span className="hub-kicker">POR TRÁS DAS IDEIAS</span>
+      <h1>Oi, sou Matheus<span className="hub-red">.</span></h1>
+      <h2>Um olhar. Várias formas de criar.</h2>
+      <p>Este é meu espaço para reunir filmes, design gráfico, desenvolvimento e fotografia. Diferentes maneiras de experimentar, contar histórias e dar forma a ideias.</p>
+      <p>Entre projetos, estudos e referências, o portfólio continua ganhando novas páginas.</p>
+      <a className="hub-primary" href="#vertentes">Explorar meus trabalhos <SiteIcon name="arrow-up-right" /></a>
+    </main> : detail ? <main className="hub-detail">
       <a href="#inicio" className="hub-back"><SiteIcon name="arrow-left" /> Todas as vertentes</a>
       <div className="hub-detail-icon"><Sketch kind={detail.icon}/></div>
       <span className="hub-kicker">VERTENTE {detail.n} / MATHEUS</span>
@@ -32,13 +46,21 @@ export default function PortfolioHome({ route }) {
       <div className="hub-coming"><span className="hub-dot"/> Um novo capítulo em construção<span>Os projetos desta área chegam em breve.</span></div>
       <a className="hub-primary" href="#filmmaker">Enquanto isso, explore meus filmes <span><SiteIcon name="arrow-up-right" /></span></a>
     </main> : <main className="badge-home">
-      <section className="badge-hero-heading" aria-labelledby="hub-title">
-        <div><p className="hub-kicker"><span className="hub-dot"/> MATHEUS / CRIATIVO EM MOVIMENTO</p>
-          <h1 id="hub-title">Um olhar.<br/><span>Várias formas de criar.</span></h1></div>
-        <div className="badge-hero-note"><p>Entre filmes, design, código e fotografia.<br/>Escolha um crachá e conheça um lado do meu trabalho.</p><span>Não cabe tudo em um título. Ainda bem. <SiteIcon name="arrow-down-left" /></span></div>
+      <div className="home-intro-row"><p>Escolha como podemos criar</p><p>Criatividade, curiosidade, perspectiva.</p></div>
+      <section className="home-hero-card" aria-labelledby="hub-title">
+        <DynamicIsland enabled label="Explore o Creative Lab" items={[
+          ['Criar', 'pencil', 'vertentes'],
+          ['Sobre', 'eyes', 'sobre'],
+          ['Contato', 'message', 'contato'],
+        ]} onNavigate={destination => {
+          if (destination === 'contato') window.location.href = `mailto:${siteContact.email}`;
+          else if (destination === 'vertentes' && window.location.hash === '#vertentes') document.getElementById('vertentes')?.scrollIntoView({ behavior: 'instant', block: 'start' });
+          else window.location.hash = destination;
+        }}/>
+        <h1 id="hub-title"><span>Suas ideias</span><br/><span>em realidade.</span></h1>
       </section>
       <BadgeSelector fields={fields}/>
     </main>}
-    <footer className="hub-footer"><span>MATHEUS <SiteIcon name="copyright" /> {new Date().getFullYear()}</span><span>Feito de curiosidade. E um pouco de tinta.</span><a href="#inicio">Tudo é perspectiva. <SiteIcon name="arrow-up-right" /></a></footer>
+    <SiteFooter />
   </div>;
 }

@@ -51,6 +51,18 @@ function Eyes({ quiet }) {
 
 function Icon({ kind, quiet }) {
   if (kind === 'eyes') return <Eyes quiet={quiet} />;
+  if (kind === 'pencil') return <svg viewBox="0 0 40 40" aria-hidden="true">
+    <motion.g style={{ transformOrigin: '12px 29px' }} variants={quiet ? {} : { rest: { rotate: 0, x: 0 }, active: { rotate: [0, -12, 6, -7, 0], x: [0, 2, -1, 2, 0], transition: { duration: .7 } } }}>
+      <path d="m9 29 3-10L28 3l9 9-16 16-12 1ZM12 19l9 9M25 6l9 9M9 29l-3 5 6-2"/>
+    </motion.g>
+    <motion.path d="M15 34c5-4 5 4 10 0s7 2 10-1" variants={quiet ? {} : { rest: { pathLength: .35, opacity: .6 }, active: { pathLength: 1, opacity: 1, transition: { duration: .7 } } }}/>
+  </svg>;
+  if (kind === 'message') return <svg viewBox="0 0 40 40" aria-hidden="true">
+    <motion.g style={{ transformOrigin: '20px 20px' }} variants={quiet ? {} : { rest: { y: 0, rotate: 0 }, active: { y: [0, -3, 0], rotate: [0, -7, 4, 0], transition: { duration: .6 } } }}>
+      <path d="M7 7h26q3 0 3 4v15q0 4-4 4H17l-9 6v-6H7q-4 0-4-4V11q0-4 4-4Z"/>
+      {[12, 20, 28].map((x, i) => <motion.circle key={x} cx={x} cy="19" r="1.5" fill="currentColor" stroke="none" variants={quiet ? {} : { rest: { opacity: .7 }, active: { opacity: [.3, 1, .7], transition: { duration: .5, delay: i * .1 } } }}/>) }
+    </motion.g>
+  </svg>;
   return <svg viewBox="0 0 40 40" aria-hidden="true">
     {kind === 'hammer' ? <motion.g style={{ transformOrigin: '28px 31px' }}
       variants={quiet ? {} : { rest: { rotate: 0 }, active: { rotate: [0, -28, 13, -12, 0], transition: { duration: .7 } } }}>
@@ -76,16 +88,16 @@ function Letters({ children, quiet }) {
   )}</span>;
 }
 
-export default function DynamicIsland({ enabled, onNavigate }) {
+export default function DynamicIsland({ enabled, onNavigate, items = [['Work', 'hammer', null], ['About', 'eyes', 'about'], ['Explorer', 'compass', 'index']], current, label = 'Matheus navigation' }) {
   const quiet = useReducedMotion();
   return <div className="island-anchor" data-island="" inert={!enabled}>
-    <nav className="dynamic-island" aria-label="Matheus navigation">
+    <nav className="dynamic-island" aria-label={label}>
       <div className="island-links">
-        {[['Work', 'hammer', null], ['About', 'eyes', 'about'], ['Explorer', 'compass', 'index']].map(([label, icon, destination]) =>
+        {items.map(([label, icon, destination]) =>
           <motion.button key={label} className="island-action"
-            aria-label={label} aria-disabled={!destination} tabIndex={destination ? 0 : -1}
+            aria-label={label} aria-current={current === destination ? 'page' : undefined} aria-disabled={!destination} tabIndex={destination ? 0 : -1}
             initial="rest" animate="rest" whileHover="active" whileFocus="active"
-            whileTap={!destination || quiet ? undefined : { scale: .92 }} onClick={destination ? () => onNavigate(destination) : undefined}>
+            whileTap={!destination || quiet ? undefined : 'active'} onClick={destination ? () => onNavigate(destination) : undefined}>
             <Icon kind={icon} quiet={quiet} /><Letters quiet={quiet}>{label}</Letters>
           </motion.button>
         )}

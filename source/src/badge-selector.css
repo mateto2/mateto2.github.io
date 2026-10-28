@@ -58,6 +58,14 @@
 .badge-portrait-foreground.is-ready{visibility:visible}
 .identity-badge:is(.is-touch-preview,.is-dragging,:focus-visible) .badge-portrait-background.is-ready{opacity:1}
 @media(hover:hover){.identity-badge:hover .badge-portrait-background.is-ready{opacity:1}}
+.badge-photo-art{display:block;position:relative;width:100%;height:100%;background:#fff;overflow:hidden}
+.badge-portrait-fotografia{object-position:50% 10%}
+.badge-photo-alternate{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none;transition:opacity 1.4s cubic-bezier(.22,.61,.36,1)}
+/* Register the head near the resting portrait while keeping the flash in frame.
+   These offsets are constant: the interaction only animates opacity. */
+.badge-portrait-fotografia-hover{position:absolute;left:-10%;top:0;object-position:50% 3%}
+.identity-badge:is(.is-touch-preview,.is-dragging,:focus-visible) .badge-photo-alternate.is-ready{opacity:1}
+@media(hover:hover){.identity-badge:hover .badge-photo-alternate.is-ready{opacity:1}}
 .badge-instructions{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:0 0 26px;color:#798097}.badge-instructions p{margin:0;font:10px 'IBM Plex Mono',monospace}.badge-instructions p>span{font:18px Arial;margin-right:9px;vertical-align:middle}.badge-four{font:8px 'IBM Plex Mono',monospace;letter-spacing:.07em}
 .badge-hub .hub-footer{padding:21px 0;font-size:8px}
 @media(min-width:1500px){.badge-stage{height:570px}.badge-rack{max-width:1250px;gap:48px}.badge-lane{--strap-length:145px}.badge-lane-designer{--strap-length:172px}.badge-lane-desenvolvedor{--strap-length:130px}.badge-lane-fotografia{--strap-length:160px}.portfolio-hub .identity-badge{max-width:250px}}

@@ -1,0 +1,30 @@
+.portfolio-hub .design-page-title{font-size:clamp(26px,3vw,38px);font-weight:500;letter-spacing:-.055em;line-height:1.1;margin:28px 0 0;text-align:center}
+.inspiration-section{padding:34px 0 42px;border-top:1px solid #183cc526;scroll-margin-top:24px}
+.inspiration-heading{display:flex;justify-content:space-between;align-items:baseline;gap:20px}
+.inspiration-heading h2{font-size:clamp(23px,3vw,38px);font-weight:500;letter-spacing:-.055em;margin:0}
+.inspiration-heading>span{font:9px 'IBM Plex Mono',monospace;letter-spacing:.06em}
+.inspiration-note{font-size:12px;line-height:1.8;color:#65708e;margin:12px 0 26px;max-width:610px}
+.inspiration-board{background:#10110f;color:#efeee8;padding:24px 26px 18px;isolation:isolate}
+.inspiration-board-label,.inspiration-board-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;font:8px 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#a7a8a0}
+.inspiration-board-label{padding:0 0 26px}.inspiration-board-label>span:last-child{display:flex;gap:12px;align-items:center}
+.inspiration-collage{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:clamp(25px,3.6vw,53px);grid-auto-flow:dense;gap:3px;align-items:stretch}
+.inspiration-piece{grid-column:span var(--columns);grid-row:span var(--rows);position:relative;display:block;width:100%;min-width:0;padding:0;border:0;background:#1c1e19;cursor:zoom-in;overflow:hidden;isolation:isolate;touch-action:manipulation}
+.inspiration-piece img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .5s,filter .5s}
+.inspiration-piece:hover img{transform:scale(1.035);filter:brightness(1.08)}
+.inspiration-piece:focus-visible{outline:3px solid #ef4a3b;outline-offset:3px;z-index:2}
+.inspiration-piece-caption{position:absolute;inset:auto 0 0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:30px 12px 12px;background:linear-gradient(transparent,#000b);color:white;text-align:left;font:12px 'DM Sans',Arial,sans-serif;opacity:0;transition:opacity .2s;pointer-events:none}
+.inspiration-piece:is(:hover,:focus-visible) .inspiration-piece-caption{opacity:1}
+.inspiration-board-footer{padding-top:24px}.inspiration-board-footer>.site-icon{font-size:24px;color:#f3eddf}
+.inspiration-empty{text-align:center;padding:60px 20px;font-size:18px}
+.inspiration-dialog{width:min(960px,calc(100% - 32px));max-width:none;max-height:calc(100svh - 40px);padding:0;border:1px solid #ffffff30;background:#121310;color:#f5f4ed;box-shadow:0 25px 100px #0008;overscroll-behavior:contain}
+.inspiration-dialog::backdrop{background:#080907da;backdrop-filter:blur(9px)}
+.inspiration-detail{position:relative;padding:54px 24px 24px}
+.inspiration-detail>img{display:block;width:100%;max-height:65svh;object-fit:contain}
+.inspiration-close{position:absolute;right:12px;top:10px;display:grid;place-items:center;width:36px;height:36px;border:1px solid #ffffff40;border-radius:50%;background:#1d1f19;color:#fff;cursor:pointer;font-size:17px}
+.inspiration-dialog button:focus-visible,.inspiration-dialog a:focus-visible{outline:2px solid #f1f0e8;outline-offset:4px}
+.inspiration-detail-caption{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:22px}
+.inspiration-detail-caption span{font:9px 'IBM Plex Mono',monospace;color:#a7a8a0}
+.inspiration-detail-caption h2{font:500 26px 'DM Sans',sans-serif;letter-spacing:-.04em;margin:8px 0}
+.inspiration-detail-caption p{font:11px 'DM Sans',sans-serif;color:#a7a8a0;margin:0;line-height:1.6}
+.inspiration-detail-caption a{font:12px 'DM Sans',sans-serif;white-space:nowrap}
+@media(max-width:700px){.design-topline{gap:12px}.design-topline>span{font-size:7px}.design-back{font-size:10px}.inspiration-heading{align-items:flex-start;flex-direction:column;gap:10px}.inspiration-board{padding:18px 10px 15px;margin:0 -8px}.inspiration-board-label{font-size:7px;padding-bottom:18px}.inspiration-board-label>span:last-child{max-width:125px;line-height:1.5}.inspiration-collage{grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:34px;gap:3px}.inspiration-piece{grid-column:span 3}.inspiration-piece:nth-child(7n){grid-column:span 6;grid-row:span 4}.inspiration-board-footer{font-size:7px;line-height:1.6}.inspiration-detail{padding:54px 14px 20px}.inspiration-detail-caption{align-items:flex-start;flex-direction:column}.inspiration-detail-caption h2{font-size:22px}.inspiration-note{font-size:11px}}

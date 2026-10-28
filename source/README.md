@@ -220,3 +220,36 @@ após soltar, antes do retorno suave. Um toque simples continua abrindo a verten
 As duas camadas carregam antecipadamente. O fundo só aparece quando ambas estão
 prontas; a imagem original serve de fallback. Movimento reduzido desativa a animação.
 Os recortes e prompts estão documentados em `BADGE-ARTWORK.md`.
+
+## Inspirações e navegação de Design
+
+`#designer` exibe apenas o sketchbook. Inspirações fica em `#inspiracoes`, acessível pelo footer. O mural começa com vinte exemplos
+locais, permite ampliar imagens por clique/toque e fecha com Escape, botão ou
+clique externo. Veja `DESIGN-INSPIRATIONS.md` para adicionar referências e créditos.
+
+## Footer compartilhado
+
+`SiteFooter.jsx` aparece em todas as vertentes, inclusive abaixo da experiência
+Filmmaker. A assinatura grande “Matheus Creative Lab” usa DM Sans 800 e o mesmo
+espaçamento da marca Matheus em Filmmaker, com duas colunas de contato/navegação.
+Os destinos públicos ficam em `src/site-contact.js`. Endereços ainda não informados
+aparecem como texto “Em breve”, sem links fictícios. Ao preencher Instagram, Substack,
+LinkedIn ou email, os links correspondentes ficam ativos; redes abrem em nova aba
+e o email usa `mailto:`. O link Sobre abre a apresentação em `#sobre`.
+
+## Crachá Fotografia
+
+`public/media/badges/fotografia.png` é a nova pose em fundo branco;
+`fotografia-hover.png` é a imagem enviada com câmera, flash e fundo preto.
+Os arquivos originais são preservados sem edição. O enquadramento é ajustado por
+CSS, com posições fixas, e apenas a opacidade da imagem alternativa anima por
+1,4 segundo. Mouse, foco por teclado, toque e arraste ativam a transformação,
+usando o mesmo comportamento de toque do crachá Desenvolvedor. A foto padrão
+permanece como fallback até a alternativa carregar. Movimento reduzido é respeitado.
+
+## Hero da entrada
+A entrada combina o título Suas ideias em realidade com a navegação animada
+Criar (crachás), Sobre e Contato (e-mail). Reutiliza DynamicIsland de Filmmaker,
+as pinceladas azuis e o padrão creme/vermelho. Os ícones SVG de lápis, olhos e
+balão de conversa respondem a mouse, foco e toque e respeitam movimento reduzido.
+As frases laterais ficam abaixo do cabeçalho, alinhadas à esquerda e à direita.

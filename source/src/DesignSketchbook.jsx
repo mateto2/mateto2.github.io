@@ -87,9 +87,7 @@ export default function DesignSketchbook() {
   const leftIndex = turn?.direction === 'previous' ? turn.to : index;
   const rightIndex = turn?.direction === 'next' ? turn.to : index;
 
-  return <main className="design-studio" onKeyDown={onKeyDown}>
-    <div className="design-topline"><a href="#inicio" className="design-back"><SiteIcon name="arrow-up-left" /> Todas as vertentes</a><span>02 / DESIGN GRÁFICO</span></div>
-    <header className="design-intro"><p>UM CADERNO ABERTO ÀS POSSIBILIDADES</p><h1>Ideias no papel<span>.</span></h1><span className="design-handnote">um pouco do que passa por aqui <SiteIcon name="arrow-down-left" /></span></header>
+  return <section className="design-sketchbook" aria-label="Projetos de design" onKeyDown={onKeyDown}>
     <section className="sketch-gallery" aria-label="Sketchbook de design gráfico" aria-roledescription="carrossel">
       <div className="sketch-stage">
         <span className="sketch-margin-note" aria-hidden="true">cor, forma & outras ideias</span>
@@ -115,5 +113,5 @@ export default function DesignSketchbook() {
       <p className="sketch-instructions" id="sketch-instructions">Clique nas páginas, use as setas ou deslize para folhear.</p>
     </section>
     <div className="design-colophon"><span className="design-colophon-star" aria-hidden="true"><SiteIcon name="asterisk" /></span><p>Um espaço para experimentar.<span>10 artes de exemplo. Em breve, novas histórias visuais.</span></p><span className="design-colophon-label">SKETCHBOOK / EDIÇÃO DEMO</span></div>
-  </main>;
+  </section>;
 }
