@@ -4,6 +4,7 @@ export const siteContact = {
   substack: 'https://substack.com/@matetoo',
   linkedin: 'https://www.linkedin.com/in/matheusamaralf/',
   youtube: 'https://www.youtube.com/@matheuscreative',
-  whatsapp: '',
+  whatsapp: 'https://wa.me/5583988987776',
   email: 'matheusamaral5389@gmail.com',
 };
+
