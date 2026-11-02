@@ -22,9 +22,24 @@ function Sketch({ kind }) {
 }
 export default function PortfolioHome({ route }) {
   const detail = fields.find(f => f.id === route && f.id !== 'filmmaker');
+  const isHome = !detail && !['inspiracoes', 'designer-inspiracoes', 'designer', 'sobre'].includes(route);
   return <div className="portfolio-hub badge-hub">
-    <header className="hub-header">
-      <a href="#inicio" className="hub-logo" aria-label="Matheus, início">m<span><SiteIcon name="asterisk" /></span></a>
+    <header className={`hub-header${isHome ? ' hub-header-home' : ''}`}>
+      <a href="#inicio" className="hub-logo" aria-label="Matheus, início"><video className="hub-logo-video" src="/media/creative-lab-logo.mp4" autoPlay muted loop playsInline preload="auto" aria-hidden="true" /></a>
+      {isHome && (
+      <section className="home-hero-card" aria-label="Navegação principal">
+        <DynamicIsland enabled label="Explore o Creative Lab" items={[
+          ['Criar', 'pencil', 'vertentes'],
+          ['Sobre', 'eyes', 'sobre'],
+          ['Contato', 'message', 'contato'],
+        ]} onNavigate={destination => {
+          if (destination === 'contato') window.location.href = `mailto:${siteContact.email}`;
+          else if (destination === 'vertentes' && window.location.hash === '#vertentes') document.getElementById('vertentes')?.scrollIntoView({ behavior: 'instant', block: 'start' });
+          else window.location.hash = destination;
+        }}/>
+
+      </section>
+      )}
     </header>
     {route === 'inspiracoes' || route === 'designer-inspiracoes' ? <main className="design-studio inspiration-page">
       <div className="design-topline"><a href="#inicio" className="design-back"><SiteIcon name="arrow-up-left" /> Início</a></div>
@@ -47,16 +62,8 @@ export default function PortfolioHome({ route }) {
       <a className="hub-primary" href="#filmmaker">Enquanto isso, explore meus filmes <span><SiteIcon name="arrow-up-right" /></span></a>
     </main> : <main className="badge-home">
       <div className="home-intro-row"><p>Escolha como podemos criar</p><p>Criatividade, curiosidade, perspectiva.</p></div>
-      <section className="home-hero-card" aria-labelledby="hub-title">
-        <DynamicIsland enabled label="Explore o Creative Lab" items={[
-          ['Criar', 'pencil', 'vertentes'],
-          ['Sobre', 'eyes', 'sobre'],
-          ['Contato', 'message', 'contato'],
-        ]} onNavigate={destination => {
-          if (destination === 'contato') window.location.href = `mailto:${siteContact.email}`;
-          else if (destination === 'vertentes' && window.location.hash === '#vertentes') document.getElementById('vertentes')?.scrollIntoView({ behavior: 'instant', block: 'start' });
-          else window.location.hash = destination;
-        }}/>
+
+      <section className="home-hero-card home-hero-title" aria-labelledby="hub-title">
         <h1 id="hub-title"><span>Suas ideias</span><br/><span>em realidade.</span></h1>
       </section>
       <BadgeSelector fields={fields}/>

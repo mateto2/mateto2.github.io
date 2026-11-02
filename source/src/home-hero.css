@@ -14,3 +14,36 @@
 @media(max-width:700px){.home-hero-card{padding:26px 0 32px}.portfolio-hub .home-hero-card h1{font-size:clamp(36px,9.6vw,58px)}.home-hero-card h1>span{padding:2px 18px 6px}}
 @media(max-width:700px){.home-intro-row{align-items:flex-start;gap:14px;padding-top:15px}.home-intro-row p{max-width:46%;font-size:11px}.home-intro-row p:last-child{max-width:50%;font-size:16px;line-height:1.3}.home-hero-card .dynamic-island{padding:6px}.home-hero-card .island-action{gap:5px;padding:7px 10px}.home-hero-card .island-letters{font-size:14px}.home-hero-card .dynamic-island svg{width:24px;height:24px}}
 @media(max-width:360px){.home-hero-card .island-action{padding:7px;gap:4px}.home-hero-card .island-letters{font-size:12px}.home-hero-card .dynamic-island svg{width:22px;height:22px}}
+
+.badge-hub .hub-logo{display:flex;align-items:center;line-height:0;letter-spacing:normal}.hub-logo-video{display:block;height:64px;width:auto;max-width:180px;object-fit:contain}@media(max-width:700px){.hub-logo-video{height:56px;max-width:150px}}
+
+/* The home hero shares the upper bar with the animated brand. */
+.badge-hub .hub-header{height:auto;min-height:150px;padding:12px 0;gap:24px}
+.badge-hub .hub-logo{flex-shrink:0}
+.hub-logo-video{height:126px;max-width:240px}
+.badge-hub .hub-header-home{display:grid;grid-template-columns:minmax(150px,240px) minmax(0,1fr);align-items:center}
+.hub-header-home .home-hero-card{min-width:0;padding:8px 0 14px}
+.hub-header-home .home-hero-card .island-anchor{margin-bottom:16px}
+.portfolio-hub .hub-header-home .home-hero-card h1{font-size:clamp(36px,4.5vw,62px)}
+@media(max-width:700px){
+  .badge-hub .hub-header{min-height:104px;padding:10px 0;gap:12px}
+  .hub-logo-video{height:100px;max-width:145px}
+  .badge-hub .hub-header-home{grid-template-columns:minmax(0,1fr)}
+  .hub-header-home .hub-logo{justify-self:start}
+  .hub-header-home .home-hero-card{padding:0 0 16px}
+  .hub-header-home .home-hero-card .island-anchor{margin-bottom:14px}
+  .portfolio-hub .hub-header-home .home-hero-card h1{font-size:clamp(36px,9vw,58px)}
+}
+
+@media(min-width:701px){
+  .badge-hub .hub-header-home{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
+  .hub-header-home .hub-logo{grid-column:1;grid-row:1;justify-self:start;max-width:100%}
+  .hub-header-home .hub-logo-video{max-width:100%}
+  .hub-header-home .home-hero-card{grid-column:2;grid-row:1;justify-self:center}
+  .hub-header-home .home-hero-card .island-anchor{margin-bottom:0}
+}
+
+@media(max-width:700px){
+  .badge-hub .hub-header .hub-logo{margin-inline:auto;justify-content:center}
+  .hub-header-home .hub-logo{justify-self:center}
+}
