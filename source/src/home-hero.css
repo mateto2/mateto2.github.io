@@ -47,3 +47,30 @@
   .badge-hub .hub-header .hub-logo{margin-inline:auto;justify-content:center}
   .hub-header-home .hub-logo{justify-self:center}
 }
+
+/* Blend the light video paper into the page, preserving the complete frame. */
+.badge-hub .hub-header .hub-logo{width:256px;max-width:100%;padding:8px;overflow:visible;mix-blend-mode:multiply}
+.badge-hub .hub-header .hub-logo-video{display:block;width:100%;height:auto;max-width:100%;aspect-ratio:3 / 2;object-fit:contain;object-position:center;filter:brightness(1.04)}
+@media(max-width:700px){
+  .badge-hub .hub-header .hub-logo{width:180px;margin-inline:auto;justify-self:center}
+}
+
+/* Intro copy lives below the header; availability stays beside the navigation. */
+.home-intro-row{align-items:start;padding-top:28px;gap:32px}
+.home-intro-copy{width:min(50%,480px)}
+.home-intro-row p.home-create-prompt,.home-intro-row p.home-bio{font:600 clamp(19px,1.7vw,25px)/1.4 'DM Sans',Arial,sans-serif;letter-spacing:-.04em;color:#111;text-align:left;max-width:none}
+.home-intro-row p.home-create-prompt{max-width:44%;padding-top:3px}
+.home-intro-row p.home-perspective{font:400 clamp(24px,2.2vw,32px)/1.2 HubHand,cursive;color:#d53930;text-align:right;max-width:none;margin:0 0 18px}
+.home-intro-row .home-bio a{text-decoration:underline;text-underline-offset:4px}
+.hub-header-home .home-profile{max-width:280px;padding:0}
+.hub-header-home .home-availability{font:600 clamp(17px,1.4vw,21px)/1.35 'DM Sans',Arial,sans-serif;letter-spacing:-.025em;gap:10px;color:#111}
+.hub-header-home .home-availability:before{width:8px;height:8px}
+@media(max-width:700px){
+ .home-intro-row{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px;padding-top:22px}
+ .home-intro-copy{display:contents}
+ .home-intro-row p.home-create-prompt{max-width:none;font-size:19px;padding:0}
+ .home-intro-row p.home-perspective{font-size:24px;margin:0}
+ .home-intro-row p.home-bio{grid-column:1/-1;font-size:19px;margin:0}
+ .hub-header-home .home-profile{justify-self:center;padding:0 0 12px;max-width:none}
+ .hub-header-home .home-availability{font-size:18px}
+}

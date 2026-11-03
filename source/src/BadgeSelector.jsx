@@ -145,7 +145,7 @@ export default function BadgeSelector({ fields }) {
   const [active, setActive] = useState(null);
   return <section className="badge-section" id="vertentes" aria-label="Escolha uma das quatro vertentes">
     <div className="badge-stage">
-      <span className="badge-backdrop-word" aria-hidden="true">Matheus<span><SiteIcon name="asterisk" /></span></span>
+
       <div className="badge-rack">{fields.map((field, i) => <HangingBadge key={field.id} field={field} index={i} active={active === i} onActivate={setActive}/>)}</div>
     </div>
     <div className="badge-instructions"><p id="badge-instructions"><span aria-hidden="true"><SiteIcon name="arrow-both" /></span> {reduced ? 'Escolha um crachá.' : 'Arraste para brincar. Toque para explorar.'}</p></div>
