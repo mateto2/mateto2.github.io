@@ -253,3 +253,11 @@ Criar (crachás), Sobre e Contato (e-mail). Reutiliza DynamicIsland de Filmmaker
 as pinceladas azuis e o padrão creme/vermelho. Os ícones SVG de lápis, olhos e
 balão de conversa respondem a mouse, foco e toque e respeitam movimento reduzido.
 As frases laterais ficam abaixo do cabeçalho, alinhadas à esquerda e à direita.
+
+## Crachá Designer
+
+`public/media/badges/designer.webp` é o retrato em fundo branco e
+`designer-hover.webp` a versão neon roxa. As duas têm o mesmo enquadramento,
+então o rosto não se move: só a opacidade da imagem alternativa anima por
+1,4 segundo, com o mesmo comportamento de mouse, teclado, toque e arraste dos
+crachás Desenvolvedor e Fotografia. `designer.png` antigo não é mais usado.
