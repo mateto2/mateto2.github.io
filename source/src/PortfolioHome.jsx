@@ -6,6 +6,7 @@ import DesignArea from './DesignArea.jsx';
 import DesignInspiration from './DesignInspiration.jsx';
 import SiteFooter from './SiteFooter.jsx';
 import DynamicIsland from './DynamicIsland.jsx';
+import ThingsWordmark from './ThingsWordmark.jsx';
 import { siteContact } from './site-contact.js';
 import './portfolio-home.css';
 import './home-hero.css';
@@ -26,7 +27,7 @@ export default function PortfolioHome({ route }) {
   const isHome = !detail && !['inspiracoes', 'designer-inspiracoes', 'designer', 'sobre'].includes(route);
   return <div className="portfolio-hub badge-hub">
     <header className={`hub-header${isHome ? ' hub-header-home' : ''}`}>
-      <a href="#inicio" className="hub-logo" aria-label="Matheus, início"><video className="hub-logo-video" src="/media/creative-lab-logo.mp4" autoPlay muted loop playsInline preload="auto" aria-hidden="true" /></a>
+      <ThingsWordmark/>
       {isHome && (
       <section className="home-hero-card" aria-label="Navegação principal">
         <DynamicIsland enabled label="Explore o Creative Lab" items={[

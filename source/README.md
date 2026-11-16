@@ -261,3 +261,10 @@ As frases laterais ficam abaixo do cabeçalho, alinhadas à esquerda e à direit
 então o rosto não se move: só a opacidade da imagem alternativa anima por
 1,4 segundo, com o mesmo comportamento de mouse, teclado, toque e arraste dos
 crachás Desenvolvedor e Fotografia. `designer.png` antigo não é mais usado.
+
+## Nome feito de coisas
+
+O vídeo `creative-lab-logo.mp4` do cabeçalho foi trocado por `ThingsWordmark.jsx`:
+"Matheus" em DM Sans 800 (igual ao rodapé), onde cada letra vira um emoji 3D (abertura em onda,
+efeito lupa no mouse/toque, legenda). Detalhes e prompts em `THINGS-ARTWORK.md`.
+
