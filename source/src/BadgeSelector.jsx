@@ -10,6 +10,7 @@ function Clasp() {
 function BadgeArtwork({ type }) {
   const [alternateReady, setAlternateReady] = useState(false);
   const [foregroundReady, setForegroundReady] = useState(false);
+  if (type === 'filmmaker') return null;
   if (type === 'fotografia') return <span className="badge-photo-art">
     <img className="badge-portrait badge-portrait-fotografia" src="/media/badges/fotografia.png" alt="" draggable="false" decoding="async"/>
     <span className={`badge-photo-alternate${alternateReady ? ' is-ready' : ''}`}>
