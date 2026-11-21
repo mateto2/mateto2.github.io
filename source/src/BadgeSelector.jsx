@@ -10,7 +10,6 @@ function Clasp() {
 function BadgeArtwork({ type }) {
   const [alternateReady, setAlternateReady] = useState(false);
   const [foregroundReady, setForegroundReady] = useState(false);
-  if (type === 'filmmaker') return null;
   if (type === 'fotografia') return <span className="badge-photo-art">
     <img className="badge-portrait badge-portrait-fotografia" src="/media/badges/fotografia.png" alt="" draggable="false" decoding="async"/>
     <span className={`badge-photo-alternate${alternateReady ? ' is-ready' : ''}`}>
@@ -18,10 +17,10 @@ function BadgeArtwork({ type }) {
         onLoad={() => setAlternateReady(true)} onError={() => setAlternateReady(false)}/>
     </span>
   </span>;
-  if (type === 'designer') return <span className="badge-photo-art">
-    <img className="badge-portrait badge-portrait-designer" src="/media/badges/designer.webp" alt="" draggable="false" decoding="async"/>
-    <span className={`badge-photo-alternate badge-designer-alternate${alternateReady ? ' is-ready' : ''}`}>
-      <img className="badge-portrait badge-portrait-designer-hover" src="/media/badges/designer-hover.webp" alt="" draggable="false" decoding="async"
+  if (type === 'designer' || type === 'filmmaker') return <span className="badge-photo-art">
+    <img className={`badge-portrait badge-portrait-${type}`} src={`/media/badges/${type}.webp`} alt="" draggable="false" decoding="async"/>
+    <span className={`badge-photo-alternate badge-${type}-alternate${alternateReady ? ' is-ready' : ''}`}>
+      <img className={`badge-portrait badge-portrait-${type}-hover`} src={`/media/badges/${type}-hover.webp`} alt="" draggable="false" decoding="async"
         onLoad={() => setAlternateReady(true)} onError={() => setAlternateReady(false)}/>
     </span>
   </span>;
@@ -115,7 +114,7 @@ function HangingBadge({ field, index, active, onActivate }) {
         <motion.a href={`#${field.id}`} className={`identity-badge${dragging ? ' is-dragging' : ''}${touchPreview ? ' is-touch-preview' : ''}`} style={{ rotateY: yaw, rotateX: pitch }}
           aria-label={`Explorar ${field.label}`} aria-describedby="badge-instructions"
           onPointerDown={e => {
-            if (['desenvolvedor', 'designer', 'fotografia'].includes(field.id) && e.pointerType !== 'mouse' && e.isPrimary !== false && e.button === 0) {
+            if (['filmmaker', 'desenvolvedor', 'designer', 'fotografia'].includes(field.id) && e.pointerType !== 'mouse' && e.isPrimary !== false && e.button === 0) {
               window.clearTimeout(previewTimer.current);
               previewPointer.current = e.pointerId;
               setTouchPreview(true);

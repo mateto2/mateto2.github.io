@@ -47,7 +47,7 @@
 .identity-badge:hover .badge-open-arrow{transform:rotate(45deg)}
 .badge-laminate{position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(120deg,#ffffff15 0%,#fff0 36%,#ffffff45 36.7%,#ffffff08 38%,#fff0 70%);mix-blend-mode:screen}
 .badge-portrait{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 35%;pointer-events:none}
-.badge-portrait-filmmaker{object-position:50% 50%;background:#000}
+.badge-portrait-filmmaker{object-position:50% 12%}
 .badge-portrait-designer{object-position:50% 15%}
 /* Share one coordinate system and a stationary portrait for both states. */
 .badge-developer-art{display:block;position:relative;width:100%;height:100%;background:#fff}
@@ -69,6 +69,8 @@
 /* Both designer images share one framing, so the face stays put while the neon version fades in. */
 .badge-designer-alternate{background:#12061f}
 .badge-portrait-designer-hover{position:absolute;inset:0;object-position:50% 15%}
+.badge-filmmaker-alternate{background:#000}
+.badge-portrait-filmmaker-hover{position:absolute;inset:0;object-position:50% 12%}
 .badge-instructions{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:0 0 26px;color:#798097}.badge-instructions p{margin:0;font:10px 'IBM Plex Mono',monospace}.badge-instructions p>span{font:18px Arial;margin-right:9px;vertical-align:middle}.badge-four{font:8px 'IBM Plex Mono',monospace;letter-spacing:.07em}
 .badge-hub .hub-footer{padding:21px 0;font-size:8px}
 @media(min-width:1500px){.badge-stage{height:570px}.badge-rack{max-width:1250px;gap:48px}.badge-lane{--strap-length:145px}.badge-lane-designer{--strap-length:172px}.badge-lane-desenvolvedor{--strap-length:130px}.badge-lane-fotografia{--strap-length:160px}.portfolio-hub .identity-badge{max-width:250px}}
