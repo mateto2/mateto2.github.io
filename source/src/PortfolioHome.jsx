@@ -42,10 +42,6 @@ export default function PortfolioHome({ route }) {
 
       </section>
       )}
-      {isHome && <aside className="home-profile">
-        <span className="home-availability">Disponível para novos projetos</span>
-
-      </aside>}
     </header>
     {route === 'inspiracoes' || route === 'designer-inspiracoes' ? <main className="design-studio inspiration-page">
       <div className="design-topline"><a href="#inicio" className="design-back"><SiteIcon name="arrow-up-left" /> Início</a></div>
@@ -67,14 +63,6 @@ export default function PortfolioHome({ route }) {
       <div className="hub-coming"><span className="hub-dot"/> Um novo capítulo em construção<span>Os projetos desta área chegam em breve.</span></div>
       <a className="hub-primary" href="#filmmaker">Enquanto isso, explore meus filmes <span><SiteIcon name="arrow-up-right" /></span></a>
     </main> : <main className="badge-home">
-      <div className="home-intro-row">
-        <p className="home-create-prompt">Escolha como podemos criar</p>
-        <div className="home-intro-copy">
-          <p className="home-perspective">Criatividade, curiosidade, perspectiva.</p>
-          <p className="home-bio">Sou Matheus Amaral. Crio filmes, identidades visuais, fotografias e experiências digitais. Meu trabalho também está no <a href={siteContact.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>.</p>
-        </div>
-      </div>
-
       <section className="home-hero-card home-hero-title" aria-labelledby="hub-title">
         <h1 id="hub-title"><span>Suas ideias</span><br/><span>em realidade.</span></h1>
       </section>
